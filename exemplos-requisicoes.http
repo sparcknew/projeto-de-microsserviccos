@@ -1,0 +1,28 @@
+### ========================================
+### CATÁLOGO SERVICE (porta 8081)
+### ========================================
+
+# 1. Criar serviço
+POST http://localhost:8081/servicos
+Content-Type: application/json
+
+{
+  "nome": "Corte de Cabelo",
+  "descricao": "Corte masculino com acabamento",
+  "preco": 60.00
+}
+
+###
+
+# 2. Listar todos os serviços
+GET http://localhost:8081/servicos
+
+###
+
+# 3. Buscar serviço por ID (substitua o ID)
+GET http://localhost:8081/servicos/123e4567-e89b-12d3-a456-426614174000
+
+---
+
+### ========================================
+### USUÁRIO SERVICE (porta 8082

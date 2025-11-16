@@ -1,0 +1,12 @@
+# Normaliza quebras de linha: todos os arquivos usam LF
+* text=auto eol=lf
+
+# Arquivos binários (não mexe)
+*.jar binary
+*.png binary
+*.jpg binary
+*.class binary
+
+# Força CRLF apenas em scripts do Windows (opcional)
+*.bat text eol=crlf
+*.cmd text eol=crlf
