@@ -1,4 +1,4 @@
-package com.meuprojeto.api;
+package com.meuprojeto.agendamento.api;
 
 import com.meuprojeto.agendamento.api.infra.CatalogoClient;
 import org.junit.jupiter.api.Test;
