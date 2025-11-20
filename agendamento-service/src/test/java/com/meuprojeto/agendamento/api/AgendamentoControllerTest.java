@@ -1,5 +1,6 @@
 package com.meuprojeto.agendamento.api;
 
+import com.meuprojeto.agendamento.AgendamentoServiceApplication;
 import com.meuprojeto.agendamento.infra.CatalogoClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
