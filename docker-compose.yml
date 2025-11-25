@@ -1,0 +1,41 @@
+# docker-compose.yml → coloca na raiz do projeto
+version: "3.9"
+
+services:
+  catalogo-service:
+    build: ./catalogo-service
+    container_name: catalogo
+    ports:
+      - "8081:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  usuario-service:
+    build: ./usuario-service
+    container_name: usuario
+    ports:
+      - "8082:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  agendamento-service:
+    build: ./agendamento-service
+    container_name: agendamento
+    ports:
+      - "8083:8080"
+    environment:
+      - CATALOGO_URL=http://catalogo:8080   # nome do container interno
+    depends_on:
+      catalogo-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
